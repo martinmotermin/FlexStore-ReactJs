@@ -1,0 +1,6 @@
+.cart__container {
+  position: absolute;
+  top: 0;
+  right: 110px;
+  font-size: 2rem;
+}

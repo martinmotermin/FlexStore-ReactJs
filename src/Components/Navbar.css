@@ -1,5 +1,113 @@
-.navbar__container {
+.primary__container {
+  background: #3b3b3b;
+}
+.navbar {
+  background: #3b3b3b;
+}
+.navbar a {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-direction: row;
+}
+.navbar a p {
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  font-weight: bolder;
+  font-size: 1.3rem;
+  color: #f3f3f3;
+}
+
+.navbar .navbar-toggler {
+  border: 0;
+  margin-right: 30px;
+}
+.navbar .navbar-toggler .toggler-icon {
+  position: relative;
+  width: 30px;
+  height: 2px;
+  background: transparent;
+  display: block;
+  transition: all 0.5s ease;
+  border-radius: 10px;
+}
+.navbar .navbar-toggler .toggler-icon::before,
+.navbar .navbar-toggler .toggler-icon::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transition: all 0.5s ease;
+}
+.navbar .navbar-toggler .toggler-icon::after {
+  transform: rotate(45deg);
+}
+.navbar .navbar-toggler .toggler-icon::before {
+  transform: rotate(-45deg);
+}
+.navbar .navbar-toggler:focus,
+.navbar .navbar-toggler:active {
+  outline: none;
+  box-shadow: none;
+  border: 0;
+}
+.navbar .navbar-toggler.collapsed .toggler-icon {
+  background: white;
+}
+.navbar .navbar-toggler.collapsed .toggler-icon::before {
+  top: -10px;
+  transform: rotate(0);
+}
+.navbar .navbar-toggler.collapsed .toggler-icon::after {
+  top: 10px;
+  transform: rotate(0);
+}
+
+.navbar .navbar-nav {
+  display: flex;
   justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+}
+.navbar .navbar-nav .nav-item .nav-link {
+  position: relative;
+  color: white;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 992px) {
+  .primary__container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .navbar-expand-lg {
+    padding-left: 100px;
+    padding-right: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 70%;
+  }
+  .navbar-expand-lg .navbar-collapse {
+    flex-grow: 0;
+  }
+  .navbar-expand-lg .navbar-collapse .navbar-nav {
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 0;
+  }
+  .navbar-expand-lg .navbar-collapse form {
+    margin-left: 30px;
+  }
 }

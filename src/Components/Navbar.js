@@ -1,10 +1,14 @@
 import React from "react";
+import CartWidget from "./CartWidget";
 import "./Navbar.css";
 
 const Navbar = () => {
   return (
     <div className="primary__container container-fluid">
       <nav className="navbar__container navbar navbar-expand-lg">
+        <a className="navbar-brand" href="#">
+          <p>FlexStore.</p>
+        </a>
         <button
           className="navbar-toggler"
           type="button"
@@ -28,9 +32,14 @@ const Navbar = () => {
                 Mujer
               </a>
             </li>
-            <li class="nav-item dropdown">
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                Niños
+              </a>
+            </li>
+            <li className="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 href="#"
                 id="navbarDropdown"
                 role="button"
@@ -39,49 +48,39 @@ const Navbar = () => {
               >
                 Marcas
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Nike
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Adidas
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Vans
                   </a>
                 </li>
               </ul>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Contacto
-              </a>
-            </li>
           </ul>
-          <form class="d-flex">
+          <form className="d-flex">
             <input
-              class="form-control me-2"
+              className="form-control me-2"
               type="search"
-              placeholder="Search"
-              aria-label="Search"
+              placeholder="Buscar"
+              aria-label="Buscar"
             />
-            <button class="btn btn-outline-success" type="submit">
-              Search
+            <button className="btn btn-outline-success" type="submit">
+              Buscar
             </button>
           </form>
         </div>
-        <a className="navbar-brand" href="#">
-          <p>FLEX STORE.</p>
-        </a>
-        <div>
-          <p>Cart Logo</p>
-        </div>
       </nav>
+      <CartWidget />
     </div>
   );
 };
