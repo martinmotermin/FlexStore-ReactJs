@@ -1,0 +1,27 @@
+.item__count--card {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  width: 300px;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rosybrown;
+  padding: 30px;
+}
+
+.item__title {
+  font-size: 1.2rem;
+}
+
+.item__counter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+}
+
+.item__counter p {
+  font-size: 1.2rem;
+  margin: 0;
+}
