@@ -1,0 +1,40 @@
+.itemDetail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.itemDetail img {
+  max-width: 600px;
+}
+
+.itemDetail--details a {
+  text-decoration: none;
+  color: gray;
+}
+
+.itemDetail--details .details--brand {
+  font-size: 1rem;
+}
+.itemDetail--details .details--category {
+  font-size: 1.3rem;
+}
+
+.itemDetail--details p {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.itemDetail--details .details--sizes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 350px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.itemDetail--details .details--sizes .size {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}

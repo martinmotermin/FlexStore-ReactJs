@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import { getProducts } from "../helpers/getProducts";
 
-const ItemListContainer = ({ greeting }) => {
+import "./ItemListContainer.css";
+
+const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -14,10 +16,8 @@ const ItemListContainer = ({ greeting }) => {
       })
       .finally(setLoading(false));
   }, []);
-  console.log(products);
   return (
     <div className="itemList__container">
-      <h1 className="greeting">{greeting}</h1>
       {loading ? <h1>Cargando Productos</h1> : <ItemList products={products} />}
     </div>
   );

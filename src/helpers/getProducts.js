@@ -6,6 +6,7 @@ const products = [
     stock: 20,
     brand: "Adidas",
     category: "Men",
+    sizes: ["33.9", "40", "41", "41.5", "42", "43", "44", "45", "45.5"],
     src: "https://essential.vteximg.com.br/arquivos/ids/468124-1000-1000/261-2681_2.jpg?v=637672426479230000",
   },
   {

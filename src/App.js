@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import ItemDetailContainer from "./components/ItemDetailContainer";
 
 //Componentes y Estilos
 import ItemListContainer from "./components/ItemListContainer";
@@ -9,7 +10,8 @@ function App() {
   return (
     <React.Fragment>
       <Navbar />
-      <ItemListContainer greeting={"Aqui va la lista de productos"} />
+      <ItemDetailContainer />
+      <ItemListContainer />
     </React.Fragment>
   );
 }
