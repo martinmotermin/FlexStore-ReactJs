@@ -5,7 +5,7 @@ const products = [
     price: 18.499,
     stock: 20,
     brand: "Adidas",
-    category: "Men",
+    category: "hombre",
     sizes: ["33.9", "40", "41", "41.5", "42", "43", "44", "45", "45.5"],
     src: "https://essential.vteximg.com.br/arquivos/ids/468124-1000-1000/261-2681_2.jpg?v=637672426479230000",
   },
@@ -15,7 +15,8 @@ const products = [
     price: 15.799,
     stock: 20,
     brand: "Puma",
-    category: "Men",
+    category: "hombre",
+    sizes: ["33.9", "40", "41", "41.5", "42", "43", "44", "45", "45.5"],
     src: "https://essential.vteximg.com.br/arquivos/ids/499399-1000-1000/961-9187_5.jpg?v=637733467713200000",
   },
   {
@@ -24,7 +25,8 @@ const products = [
     price: 14.299,
     stock: 20,
     brand: "Puma",
-    category: "Men",
+    category: "mujer",
+    sizes: ["33.9", "40", "41", "41.5", "42", "43", "44", "45", "45.5"],
     src: "https://essential.vteximg.com.br/arquivos/ids/499786-1000-1000/961-1538_2.jpg?v=637735305083070000",
   },
   {
@@ -33,7 +35,8 @@ const products = [
     price: 17.299,
     stock: 20,
     brand: "Puma",
-    category: "Men",
+    category: "kids",
+    sizes: ["33.9", "40", "41", "41.5", "42", "43", "44", "45", "45.5"],
     src: "https://essential.vteximg.com.br/arquivos/ids/491348-1000-1000/961-1523_2.jpg?v=637717099857700000",
   },
   {
@@ -42,7 +45,8 @@ const products = [
     price: 11.699,
     stock: 20,
     brand: "Puma",
-    category: "Men",
+    category: "hombre",
+    sizes: ["33.9", "40", "41", "41.5", "42", "43", "44", "45", "45.5"],
     src: "https://essential.vteximg.com.br/arquivos/ids/471978-1000-1000/961-3308_2.jpg?v=637675012242530000",
   },
 ];

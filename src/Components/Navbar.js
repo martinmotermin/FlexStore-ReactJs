@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 import "./Navbar.css";
 
@@ -6,9 +7,10 @@ const Navbar = () => {
   return (
     <div className="primary__container container-fluid">
       <nav className="navbar__container navbar navbar-expand-lg">
-        <a className="navbar-brand" href="#">
+        <Link to="/" className="navbar-brand">
           <p>FlexStore.</p>
-        </a>
+        </Link>
+
         <button
           className="navbar-toggler"
           type="button"
@@ -23,22 +25,23 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link to="/category/hombre" className="nav-link">
                 Hombre
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link to="/category/mujer" className="nav-link">
                 Mujer
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Niños
-              </a>
+              <Link to="/category/kids" className="nav-link">
+                Kids
+              </Link>
             </li>
             <li className="nav-item dropdown">
-              <a
+              <Link
+                to="/brand"
                 className="nav-link dropdown-toggle"
                 href="#"
                 id="navbarDropdown"
@@ -47,7 +50,8 @@ const Navbar = () => {
                 aria-expanded="false"
               >
                 Marcas
-              </a>
+              </Link>
+
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
                   <a className="dropdown-item" href="#">

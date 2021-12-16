@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react/cjs/react.development";
 import { getProducts } from "../helpers/getProducts";
 import ItemDetail from "./ItemDetail";
+import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState({
@@ -16,14 +17,14 @@ const ItemDetailContainer = () => {
   });
   const [loading, setLoading] = useState(true);
 
+  const { itemId } = useParams();
+
   useEffect(() => {
     getProducts
-      .then((products) => setItem(products[0]))
+      .then((products) => setItem(products.find((prod) => prod.id == itemId)))
       .catch((err) => console.error(err.message))
       .finally(setLoading(false));
-  }, []);
-
-  console.log(item);
+  }, [itemId]);
 
   return (
     <div className="itemDetail__container container">
