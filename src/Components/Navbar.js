@@ -84,7 +84,9 @@ const Navbar = () => {
           </form>
         </div>
       </nav>
-      <CartWidget />
+      <Link to="/cart">
+        <CartWidget />
+      </Link>
     </div>
   );
 };

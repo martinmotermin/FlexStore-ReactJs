@@ -1,12 +1,11 @@
 .item__count--card {
+  margin: auto;
   display: flex;
   flex-direction: column;
   height: 100px;
   width: 300px;
   justify-content: space-around;
   align-items: center;
-  background-color: rosybrown;
-  padding: 30px;
 }
 
 .item__title {

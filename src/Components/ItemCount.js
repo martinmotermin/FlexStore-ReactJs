@@ -1,27 +1,36 @@
 import React, { useState } from "react";
 import "./ItemCount.css";
 
-const ItemCount = () => {
+const ItemCount = ({ itemStock, onAdd }) => {
   const [counter, setCounter] = useState(1);
 
   const addProductHandler = () => {
-    setCounter(counter + 1);
+    counter < itemStock && setCounter(counter + 1);
   };
 
   const sustractProductHandler = () => {
-    if (counter > 1) {
-      setCounter(counter - 1);
-    }
+    counter > 1 && setCounter(counter - 1);
   };
 
   return (
     <div className="item__count--card">
-      <h3 className="item__title">Nombre del producto</h3>
       <div className="item__counter">
-        <button onClick={sustractProductHandler}>-</button>
+        <button className="btn btn-primary" onClick={sustractProductHandler}>
+          -
+        </button>
         <p>{counter}</p>
-        <button onClick={addProductHandler}>+</button>
+        <button className="btn btn-primary" onClick={addProductHandler}>
+          +
+        </button>
       </div>
+      <button
+        className="btn btn-primary"
+        onClick={() => {
+          onAdd(counter);
+        }}
+      >
+        Agregar al carrito
+      </button>
     </div>
   );
 };
