@@ -1,18 +1,23 @@
-import React from "react";
-import { useState } from "react/cjs/react.development";
+import React, { useState, useContext } from "react";
 import ItemCount from "./ItemCount";
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
 import "./ItemDetail.css";
 
 const ItemDetail = ({ item }) => {
+  const { addToCart, cartList } = useContext(CartContext);
+
   const { sizes } = !!item && item;
 
   const [goCart, SetGoCart] = useState(false);
 
   const onAdd = (quantity) => {
     SetGoCart(true);
+    addToCart({ ...item, quantity: quantity });
   };
+
+  console.log(cartList);
 
   return (
     <React.Fragment>
