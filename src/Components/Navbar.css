@@ -1,8 +1,14 @@
 .primary__container {
   background: #3b3b3b;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 .navbar {
   background: #3b3b3b;
+  padding-left: 0;
+  padding-right: 0;
 }
 .navbar a {
   display: flex;
@@ -85,16 +91,11 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   .navbar-expand-lg {
-    padding-left: 100px;
     padding-right: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     flex-direction: row;
-    width: 70%;
   }
   .navbar-expand-lg .navbar-collapse {
     flex-grow: 0;

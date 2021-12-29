@@ -5,8 +5,8 @@ import "./Navbar.css";
 
 const Navbar = () => {
   return (
-    <div className="primary__container container-fluid">
-      <nav className="navbar__container navbar navbar-expand-lg">
+    <div className="primary__container container-fluid d-flex">
+      <nav className="navbar__container navbar navbar-expand-lg align-self-start">
         <Link to="/" className="navbar-brand">
           <p>FlexStore.</p>
         </Link>

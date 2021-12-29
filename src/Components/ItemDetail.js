@@ -17,8 +17,6 @@ const ItemDetail = ({ item }) => {
     addToCart({ ...item, quantity: quantity });
   };
 
-  console.log(cartList);
-
   return (
     <React.Fragment>
       <div className="itemDetail" id={item.id}>
