@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react/cjs/react.development";
-import { getProducts } from "../helpers/getProducts";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
+import { getFirestore, getDoc, doc } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState({
@@ -20,10 +20,10 @@ const ItemDetailContainer = () => {
   const { itemId } = useParams();
 
   useEffect(() => {
-    getProducts
-      .then((products) => setItem(products.find((prod) => prod.id == itemId)))
-      .catch((err) => console.error(err.message))
-      .finally(setLoading(false));
+    const db = getFirestore();
+    const queryDb = doc(db, "items", itemId);
+    getDoc(queryDb).then((resp) => setItem({ id: resp.id, ...resp.data() }));
+    setLoading(false);
   }, [itemId]);
 
   return (
