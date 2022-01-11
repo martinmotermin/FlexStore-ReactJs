@@ -1,0 +1,16 @@
+.cartItem {
+  min-width: 800px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cartItem img {
+  width: 200px;
+}
+
+.cartItem .removeItem--btn {
+  width: 60px;
+  height: 40px;
+}

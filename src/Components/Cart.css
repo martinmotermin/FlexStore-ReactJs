@@ -14,3 +14,11 @@
   align-items: center;
   justify-content: center;
 }
+
+.cartList .cartBtn__container {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

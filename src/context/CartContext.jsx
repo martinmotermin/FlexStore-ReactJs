@@ -3,9 +3,11 @@ import React, { createContext, useState, useEffect } from "react";
 export const CartContext = createContext([]);
 
 function CartContextProvider({ children }) {
-  const [cartList, setCartList] = useState([]);
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const [cartList, setCartList] = useState(cart);
   const [itemsQuant, setItemsQuant] = useState(0);
   const [isEmpty, setIsEmpty] = useState(true);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const addToCart = (product) => {
     const isInCard = cartList.some((item) => item.id === product.id);
@@ -22,12 +24,16 @@ function CartContextProvider({ children }) {
     }
   };
 
-  const reducer = (totalItems, currentItem) => {
-    return totalItems + currentItem.quantity;
-  };
-
   useEffect(() => {
-    setItemsQuant(cartList.reduce(reducer, 0));
+    setItemsQuant(cartList.reduce((acum, prod) => acum + prod.quantity, 0));
+    setTotalPrice(
+      Number(
+        cartList
+          .reduce((acum, prod) => acum + prod.quantity * prod.price, 0)
+          .toFixed(2)
+      )
+    );
+    localStorage.setItem("cart", JSON.stringify(cartList));
     if (cartList.length > 0) {
       setIsEmpty(false);
     }
@@ -52,6 +58,7 @@ function CartContextProvider({ children }) {
         cartList,
         itemsQuant,
         isEmpty,
+        totalPrice,
       }}
     >
       {children}
