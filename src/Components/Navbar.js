@@ -40,8 +40,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item dropdown">
-              <Link
-                to="/brand"
+              <a
                 className="nav-link dropdown-toggle"
                 href="#"
                 id="navbarDropdown"
@@ -50,38 +49,27 @@ const Navbar = () => {
                 aria-expanded="false"
               >
                 Marcas
-              </Link>
+              </a>
 
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <Link to="/brand/nike" className="dropdown-item">
                     Nike
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <Link to="/brand/adidas" className="dropdown-item">
                     Adidas
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
-                    Vans
-                  </a>
+                  <Link to="/brand/reebok" className="dropdown-item">
+                    Reebok
+                  </Link>
                 </li>
               </ul>
             </li>
           </ul>
-          <form className="d-flex">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Buscar"
-              aria-label="Buscar"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Buscar
-            </button>
-          </form>
         </div>
       </nav>
       <Link to="/cart">

@@ -4,3 +4,8 @@
   max-width: 330px;
   padding: 10px;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}

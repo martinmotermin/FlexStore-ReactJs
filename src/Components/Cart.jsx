@@ -2,7 +2,13 @@ import React, { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
-import { addDoc, collection, getFirestore } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  getFirestore,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 
 import "./Cart.css";
 import CheckoutForm from "./CheckoutForm";
@@ -12,6 +18,8 @@ export const Cart = () => {
     useContext(CartContext);
   const [dataForm, setDataForm] = useState({ name: "", email: "", phone: "" });
   const [orderId, setOrderId] = useState("");
+  const [orderLoading, setOrderLoading] = useState(false);
+  const [isOrdered, setIsOrdered] = useState(false);
 
   const cart = JSON.parse(localStorage.getItem("cart"));
 
@@ -22,6 +30,8 @@ export const Cart = () => {
   const generateOrder = (e) => {
     e.preventDefault();
 
+    setOrderLoading(true);
+
     let order = {};
 
     order.buyer = dataForm;
@@ -31,15 +41,27 @@ export const Cart = () => {
       const id = prod.id;
       const name = prod.name;
       const price = prod.price * prod.quantity;
+      const size = prod.size;
 
-      return { id, name, price };
+      return { id, name, price, size };
     });
 
     const db = getFirestore();
     const ordersCollection = collection(db, "orders");
     addDoc(ordersCollection, order)
       .then((resp) => setOrderId(resp.id))
-      .catch((err) => console.error(err.message));
+      .catch((err) => console.error(err.message))
+      .finally(() => {
+        setOrderLoading(false);
+        setIsOrdered(true);
+      });
+
+    cart.map((prod) => {
+      const prodUpdate = doc(db, "items", prod.id);
+      updateDoc(prodUpdate, {
+        stock: prod.stock - prod.quantity,
+      });
+    });
 
     emptyCart();
   };
@@ -47,6 +69,13 @@ export const Cart = () => {
   return (
     <div className="cartList">
       <div className="cartList__container">
+        {orderLoading && <h2>Generando orden...</h2>}
+        {!orderLoading & isOrdered && (
+          <h2>
+            Su orden ha sido generada, el codigo de seguimiento es:
+            {orderId}
+          </h2>
+        )}
         {!isEmpty ? (
           cart.map((prod) => (
             <CartItem
@@ -56,20 +85,14 @@ export const Cart = () => {
               quant={prod.quantity}
               price={prod.price}
               src={prod.src}
+              size={prod.size}
             />
           ))
         ) : (
           <>
-            {orderId.length > 0 && (
-              <h2>
-                Su orden ha sido generada, el codigo de seguimiento es:{" "}
-                {orderId}
-              </h2>
-            )}
             <h1>No hay productos agregados!</h1>
-            <hr />
             <Link to="/">
-              <button>Volver al shop</button>
+              <button className="btn btn-primary">Volver al shop</button>
             </Link>
           </>
         )}

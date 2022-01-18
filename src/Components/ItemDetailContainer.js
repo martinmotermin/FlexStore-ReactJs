@@ -23,7 +23,7 @@ const ItemDetailContainer = () => {
     const db = getFirestore();
     const queryDb = doc(db, "items", itemId);
     getDoc(queryDb).then((resp) => setItem({ id: resp.id, ...resp.data() }));
-    setLoading(false);
+    setTimeout(() => setLoading(false), 500);
   }, [itemId]);
 
   return (

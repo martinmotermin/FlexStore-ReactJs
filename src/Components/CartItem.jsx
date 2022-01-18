@@ -3,7 +3,7 @@ import { CartContext } from "../context/CartContext";
 
 import "./CartItem.css";
 
-const CartItem = ({ id, name, price, quant, src }) => {
+const CartItem = ({ id, name, price, quant, src, size }) => {
   const { removeItem } = useContext(CartContext);
 
   return (
@@ -12,6 +12,7 @@ const CartItem = ({ id, name, price, quant, src }) => {
 
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
+        <h6>Talle: {size}</h6>
         <h4 className="card-price">${price}</h4>
         <h6>Cantidad: {quant}</h6>
         <h5>SubTotal: ${price * quant}</h5>

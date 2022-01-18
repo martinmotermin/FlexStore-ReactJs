@@ -20,9 +20,7 @@ const CartWidget = () => {
   return (
     <IconContext.Provider value={{ color: "white" }}>
       <div className="cart__container">
-        <a href="#">
-          <FiShoppingCart />
-        </a>
+        <FiShoppingCart />
 
         {!isEmpty && <div className="cartWidget--count">{itemsQuant}</div>}
       </div>

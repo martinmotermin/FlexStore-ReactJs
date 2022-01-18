@@ -13,6 +13,7 @@ const CheckoutForm = ({ generateOrder, handleFormChange, emptyCart }) => {
           type="text"
           name="name"
           placeholder="Nombre Completo"
+          required
         />
       </div>
       <div className="mb-3">
@@ -21,6 +22,7 @@ const CheckoutForm = ({ generateOrder, handleFormChange, emptyCart }) => {
           type="text"
           name="phone"
           placeholder="Numero de telefono"
+          required
         />
       </div>
       <div className="mb-3">
@@ -29,6 +31,7 @@ const CheckoutForm = ({ generateOrder, handleFormChange, emptyCart }) => {
           type="email"
           name="email"
           placeholder="Correo electronico"
+          required
         />
       </div>
       <button onClick={emptyCart} className="btn btn-danger">

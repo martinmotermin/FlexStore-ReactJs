@@ -27,6 +27,11 @@ function App() {
               path="/item/:itemId"
               element={<ItemDetailContainer />}
             />
+            <Route
+              exact
+              path="/brand/:brandId"
+              element={<ItemListContainer />}
+            />
             <Route exact path="/cart" element={<Cart />} />
           </Routes>
         </React.Fragment>

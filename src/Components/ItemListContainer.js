@@ -10,25 +10,7 @@ const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const { categoryId } = useParams();
-
-  // useEffect(() => {
-  //   if (categoryId) {
-  //     getProducts
-  //       .then((products) =>
-  //         setProducts(products.filter((prod) => prod.category === categoryId))
-  //       )
-  //       .catch((err) => console.error(err))
-  //       .finally(setLoading(false));
-  //   } else {
-  //     getProducts
-  //       .then((products) => setProducts(products))
-  //       .catch((err) => {
-  //         console.error(err.message);
-  //       })
-  //       .finally(setLoading(false));
-  //   }
-  // }, [categoryId]);
+  const { categoryId, brandId } = useParams();
 
   useEffect(() => {
     if (categoryId) {
@@ -50,7 +32,26 @@ const ItemListContainer = () => {
       );
       setLoading(false);
     }
-  }, [categoryId]);
+    if (brandId) {
+      const db = getFirestore();
+      const queryCollection = collection(db, "items");
+      getDocs(queryCollection).then((resp) => {
+        const items = resp.docs.map((prod) => ({
+          id: prod.id,
+          ...prod.data(),
+        }));
+        setProducts(items.filter((prod) => prod.brand === brandId));
+      });
+      setLoading(false);
+    } else {
+      const db = getFirestore();
+      const queryCollection = collection(db, "items");
+      getDocs(queryCollection).then((resp) =>
+        setProducts(resp.docs.map((prod) => ({ id: prod.id, ...prod.data() })))
+      );
+      setLoading(false);
+    }
+  }, [categoryId, brandId]);
   return (
     <div className="itemList__container">
       {loading ? <h1>Cargando Productos</h1> : <ItemList products={products} />}
